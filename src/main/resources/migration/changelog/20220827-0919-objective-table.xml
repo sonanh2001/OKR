@@ -1,0 +1,35 @@
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+  <changeSet author="Son Anh" id="20220827-0919-objective-table">
+    <createTable tableName="objective">
+      <column name="objective_id" autoIncrement="true" type="bigint">
+        <constraints primaryKey="true"/>
+      </column>
+      <column name="title" type="text">
+        <constraints nullable="false"/>
+      </column>
+      <column name="reason" type="text">
+        <constraints nullable="false"/>
+      </column>
+      <column name="type" type="varchar(100)"/>
+      <column name="mentor" type="text"/>
+      <column name="due_date" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="start_date" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="user_id" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+    <addForeignKeyConstraint baseTableName="objective" baseColumnNames="user_id"
+      constraintName="fk_objective_user"
+      referencedTableName="user" referencedColumnNames="user_id"/>
+  </changeSet>
+
+</databaseChangeLog>

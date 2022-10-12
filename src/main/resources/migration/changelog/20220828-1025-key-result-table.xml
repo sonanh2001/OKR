@@ -1,0 +1,37 @@
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+  <changeSet author="Son Anh" id="20220828-1025-key-result-table">
+    <createTable tableName="key_result">
+      <column name="key_result_id" autoIncrement="true" type="bigint">
+        <constraints primaryKey="true"/>
+      </column>
+      <column name="title" type="text">
+        <constraints nullable="false"/>
+      </column>
+      <column name="step" type="text">
+        <constraints nullable="false"/>
+      </column>
+      <column name="mentor" type="text"/>
+      <column name="progress" type="float">
+        <constraints nullable="false"/>
+      </column>
+      <column name="due_date" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="start_date" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="objective_id" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+    <addForeignKeyConstraint baseTableName="key_result" baseColumnNames="objective_id"
+      constraintName="fk_key_result_objective"
+      referencedTableName="objective" referencedColumnNames="objective_id"/>
+  </changeSet>
+
+</databaseChangeLog>

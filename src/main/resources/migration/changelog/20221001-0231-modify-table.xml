@@ -1,0 +1,14 @@
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+  <changeSet author="Son Anh" id="20221001-0231-modify-table">
+    <addUniqueConstraint tableName="objective" columnNames="title"
+      constraintName="unique_title_objective"/>
+    <addUniqueConstraint tableName="key_result" columnNames="title"
+      constraintName="unique_title_key_result"/>
+  </changeSet>
+
+</databaseChangeLog>
